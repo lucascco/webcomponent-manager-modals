@@ -1,0 +1,8 @@
+.modal-test {
+  display: flex;
+  width: 350px;
+  height: 350px;
+  background-color: #fff;
+  position: absolute;
+  transform: translateX(calc(100% - 350px));
+}

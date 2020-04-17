@@ -1,0 +1,22 @@
+.container-overlay {
+  opacity: 0;
+  display: inherit;
+  visibility: hidden;
+  overflow: auto;
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.6);
+  transition: opacity 0.5s, visibility 0s 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: var(--cp-zindex-overlay-modal);
+  &.-is-show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s;
+  }
+}
