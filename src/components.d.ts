@@ -9,7 +9,7 @@ import { Element, } from "@stencil/core";
 import { OptionsModal, } from "./models/cp-modals.models";
 export namespace Components {
     interface TestModal {
-        "title": string;
+        "titleModal": string;
     }
     interface TestRootModals {
     }
@@ -22,6 +22,7 @@ export namespace Components {
         "closeModal": (id: string) => Promise<void>;
         "getChildModals": () => Promise<Node[]>;
         "isShow": boolean;
+        "showOverlay": boolean;
     }
 }
 declare global {
@@ -64,7 +65,7 @@ declare namespace LocalJSX {
             data: any;
         }>) => void;
         "onCpCustomClickModal"?: (event: CustomEvent<any>) => void;
-        "title"?: string;
+        "titleModal"?: string;
     }
     interface TestRootModals {
     }
@@ -72,6 +73,7 @@ declare namespace LocalJSX {
     }
     interface WcOverlay {
         "isShow"?: boolean;
+        "showOverlay"?: boolean;
     }
     interface IntrinsicElements {
         "test-modal": TestModal;

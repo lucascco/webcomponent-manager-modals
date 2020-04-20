@@ -9,7 +9,7 @@ export class TestModal {
 
   @Element() testModalElement: Element;
 
-  @Prop() title: string;
+  @Prop() titleModal: string;
 
   @Event({eventName: 'componentLoad'})
   whenComponentLoad: EventEmitter;
@@ -37,7 +37,7 @@ export class TestModal {
       <div class="modal-test">
         <button onClick={() => this.closeModal()}>close modal</button>
         <button onClick={() => this.customClickModal()}>custom click</button>
-        {this.title}
+        {this.titleModal}
         One modal
       </div>
     );

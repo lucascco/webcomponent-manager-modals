@@ -10,6 +10,7 @@ import { Modal } from '../../models/modal';
 })
 export class WcHandleModals {
 
+  @State() showOverlay: boolean = true;
   @State() isShow: boolean = false;
   public wcOverlay: HTMLWcOverlayElement;
 
@@ -25,16 +26,19 @@ export class WcHandleModals {
     this.customClick(element, data);
   }
 
-  private defaultOptions = {
+  private defaultOptions: OptionsModal = {
     overlap: false,
+    overlay: true,
   }
 
   @Method()
   async addModal(tagModal: string, options: OptionsModal = this.defaultOptions) {
+    const optionsModal = {...this.defaultOptions, ...options};
+    this.showOverlay = optionsModal.overlay;
     const elementModal = this.createElementModal(tagModal);
-    this.insertParams(elementModal, options);
-    await this.insertModalInOverlay(elementModal, options.overlap);
-    this.addModalToService(elementModal, elementModal.id, options)
+    this.insertParams(elementModal, optionsModal);
+    await this.insertModalInOverlay(elementModal, optionsModal.overlap);
+    this.addModalToService(elementModal, elementModal.id, optionsModal)
   }
 
   @Method()
@@ -99,7 +103,7 @@ export class WcHandleModals {
 
   render() {
     return (
-      <wc-overlay isShow={this.isShow} ref={el => this.wcOverlay = el}>
+      <wc-overlay showOverlay={this.showOverlay} isShow={this.isShow} ref={el => this.wcOverlay = el}>
       </wc-overlay>
     );
   }
