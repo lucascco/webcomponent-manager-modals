@@ -9,7 +9,12 @@ export class TestRootModals {
   handleModals: HTMLWcHandleModalsElement;
 
   async componentDidLoad() {
-    await this.handleModals.addModal('test-modal', { overlap: true, props: { title: 'modal a' } });
+    await this.handleModals.addModal('test-modal', {
+      onCloseModal: data => console.log(`close modal root`, data),
+      onCustomClick: data => console.log(`custom click root`, data),
+      overlap: true,
+      props: { title: 'modal a' }
+    });
     setTimeout(() => this.handleModals.addModal('test-modal', { overlap: true, props: { title: 'modal b' } }), 3000);
   }
 

@@ -28,10 +28,15 @@ export class TestModal {
     this.cpCloseModal.emit({ element: this.testModalElement, data: { origin: 'btn-close' } });
   }
 
+  customClickModal() {
+    this.cpCustomClickModal.emit({ element: this.testModalElement, data: { origin: 'custom-click' } });
+  }
+
   render() {
     return (
       <div class="modal-test">
         <button onClick={() => this.closeModal()}>close modal</button>
+        <button onClick={() => this.customClickModal()}>custom click</button>
         {this.title}
         One modal
       </div>
