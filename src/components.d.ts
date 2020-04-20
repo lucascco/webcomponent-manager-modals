@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Element, } from "@stencil/core";
 import { OptionsModal, } from "./models/cp-modals.models";
 export namespace Components {
     interface TestModal {
@@ -61,7 +60,7 @@ declare namespace LocalJSX {
     interface TestModal {
         "onComponentLoad"?: (event: CustomEvent<any>) => void;
         "onCpCloseModal"?: (event: CustomEvent<{
-            element: Element;
+            element: HTMLElement;
             data: any;
         }>) => void;
         "onCpCustomClickModal"?: (event: CustomEvent<any>) => void;

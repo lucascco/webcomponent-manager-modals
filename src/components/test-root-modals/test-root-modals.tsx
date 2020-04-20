@@ -16,7 +16,7 @@ export class TestRootModals {
       overlay: false,
       props: { 'title-modal': 'modal a' }
     });
-    setTimeout(() => this.handleModals.addModal('title-modal', { overlap: true, overlay: true, props: { 'title-modal': 'modal b' } }), 3000);
+    setTimeout(() => this.handleModals.addModal('test-modal', { overlap: true, overlay: true, props: { 'title-modal': 'modal b' } }), 3000);
   }
 
   render() {

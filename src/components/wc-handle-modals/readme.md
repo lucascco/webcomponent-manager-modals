@@ -7,7 +7,17 @@
 
 ## Methods
 
-### `addModal(tagModal: string, options?: { overlap: boolean; }) => Promise<void>`
+### `addModal(tagModal: string, options?: OptionsModal) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `removeModal() => Promise<void>`
 
 
 

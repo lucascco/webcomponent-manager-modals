@@ -15,7 +15,7 @@ export class WcOverlay {
   @Method()
   async closeModal(id: string): Promise<void> {
     const childModals = await this.getChildModals();
-    const childToClose = childModals.find((child: Element) => child.id === id);
+    const childToClose = childModals.find((child: HTMLElement) => child.id === id);
     if(childToClose) {
       this.wcOverlay.removeChild(childToClose);
     }

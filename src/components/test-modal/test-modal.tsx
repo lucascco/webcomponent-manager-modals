@@ -7,7 +7,7 @@ import { Component, h, Event, EventEmitter, Prop, Element } from '@stencil/core'
 })
 export class TestModal {
 
-  @Element() testModalElement: Element;
+  @Element() testModalElement: HTMLElement;
 
   @Prop() titleModal: string;
 
@@ -15,7 +15,7 @@ export class TestModal {
   whenComponentLoad: EventEmitter;
 
   @Event({eventName: 'cpCloseModal'})
-  cpCloseModal: EventEmitter<{element: Element, data: any}>;
+  cpCloseModal: EventEmitter<{element: HTMLElement, data: any}>;
 
   @Event({eventName: 'cpCustomClickModal'})
   cpCustomClickModal: EventEmitter;
