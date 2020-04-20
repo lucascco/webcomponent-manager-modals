@@ -14,9 +14,9 @@ export class TestRootModals {
       onCustomClick: data => console.log(`custom click root`, data),
       overlap: true,
       overlay: false,
-      props: { titleModal: 'modal a' }
+      props: { 'title-modal': 'modal a' }
     });
-    setTimeout(() => this.handleModals.addModal('test-modal', { overlap: true, overlay: true, props: { titleModal: 'modal b' } }), 3000);
+    setTimeout(() => this.handleModals.addModal('title-modal', { overlap: true, overlay: true, props: { 'title-modal': 'modal b' } }), 3000);
   }
 
   render() {

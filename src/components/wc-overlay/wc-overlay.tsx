@@ -50,7 +50,6 @@ export class WcOverlay {
   }
 
   render() {
-    console.log(this.showOverlay);
     return (
       <div
         ref={el => this.divContainerOverlay = el}
