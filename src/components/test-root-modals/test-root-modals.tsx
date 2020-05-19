@@ -7,6 +7,7 @@ import { Component, h } from '@stencil/core';
 })
 export class TestRootModals {
   handleModals: HTMLWcHandleModalsElement;
+  wrapperModalBlur: HTMLDivElement;
 
   async openModal() {
     await this.handleModals.addModal('test-modal', {
@@ -16,7 +17,9 @@ export class TestRootModals {
       overlay: false,
       props: { 'title-modal': 'modal a' }
     });
-    setTimeout(() => this.handleModals.addModal('test-modal', { overlap: true, overlay: true, props: { 'title-modal': 'modal b' } }), 3000);
+    setTimeout(() => this.handleModals.addModal('test-modal', {
+      overlap: true, overlay: true, props: { 'title-modal': 'modal b' }, elementBlur: this.wrapperModalBlur, nameClassBlur: 'modal-blur'
+    }), 3000);
   }
 
   async componentDidLoad() {
@@ -26,7 +29,9 @@ export class TestRootModals {
   render() {
     return (
       <div>
-        <button onClick={() => this.openModal()}>Abrir</button>
+        <div ref={el => this.wrapperModalBlur = el}>
+          <button onClick={() => this.openModal()}>Abrir</button>
+        </div>
         <wc-handle-modals ref={el => this.handleModals = el}></wc-handle-modals>
 
       </div>

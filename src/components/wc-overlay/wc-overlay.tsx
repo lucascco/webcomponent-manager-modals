@@ -54,11 +54,11 @@ export class WcOverlay {
       <div
         ref={el => this.divContainerOverlay = el}
         class={`
-          container-overlay
-          ${this.isShow ? '-is-show' : ''}
-          ${this.showOverlay ? '' : '-no-overlay'}
+        container-overlay
+        ${this.isShow ? '-is-show' : ''}
+        ${this.showOverlay ? '' : '-no-overlay'}
         `}
-      >
+        >
         <slot />
       </div>
     );

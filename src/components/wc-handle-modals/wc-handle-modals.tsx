@@ -29,6 +29,8 @@ export class WcHandleModals {
   private defaultOptions: OptionsModal = {
     overlap: false,
     overlay: true,
+    elementBlur: undefined,
+    nameClassBlur: '',
   }
 
   @Method()
@@ -38,7 +40,8 @@ export class WcHandleModals {
     const elementModal = this.createElementModal(tagModal);
     this.insertParams(elementModal, optionsModal);
     await this.insertModalInOverlay(elementModal, optionsModal.overlap);
-    this.addModalToService(elementModal, elementModal.id, optionsModal)
+    this.addModalToService(elementModal, elementModal.id, optionsModal);
+    this.insertBlur(optionsModal.elementBlur, optionsModal.nameClassBlur);
   }
 
   @Method()
@@ -63,13 +66,28 @@ export class WcHandleModals {
       return;
     }
     modal.closeModal(data);
+    this.removeBlur(modal.options.elementBlur, modal.options.nameClassBlur);
     handleModalService.removeModal(modal);
     this.isShow = false;
   }
 
-  private addModalToService(ref: HTMLElement, id: string, { onCustomClick, onCloseModal }: OptionsModal) {
-    const modal = new Modal(ref, id, onCloseModal, onCustomClick);
+  private addModalToService(ref: HTMLElement, id: string, options: OptionsModal) {
+    const modal = new Modal(ref, id, options.onCloseModal, options.onCustomClick, options);
     handleModalService.addModal(modal);
+  }
+
+  private insertBlur(element: HTMLElement, nameClassBlur: string) {
+    if(!element) {
+      return;
+    }
+    element.classList.add(nameClassBlur);
+  }
+
+  private removeBlur(element: HTMLElement, nameClassBlur: string) {
+    if(!element) {
+      return;
+    }
+    element.classList.remove(nameClassBlur);
   }
 
   private insertParams(elementModal: HTMLElement, { props }: OptionsModal) {
