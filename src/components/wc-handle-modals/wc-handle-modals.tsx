@@ -64,6 +64,7 @@ export class WcHandleModals {
     }
     modal.closeModal(data);
     handleModalService.removeModal(modal);
+    this.isShow = false;
   }
 
   private addModalToService(ref: HTMLElement, id: string, { onCustomClick, onCloseModal }: OptionsModal) {

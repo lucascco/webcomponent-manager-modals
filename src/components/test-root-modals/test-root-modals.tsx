@@ -8,7 +8,7 @@ import { Component, h } from '@stencil/core';
 export class TestRootModals {
   handleModals: HTMLWcHandleModalsElement;
 
-  async componentDidLoad() {
+  async openModal() {
     await this.handleModals.addModal('test-modal', {
       onCloseModal: data => console.log(`close modal root`, data),
       onCustomClick: data => console.log(`custom click root`, data),
@@ -19,9 +19,17 @@ export class TestRootModals {
     setTimeout(() => this.handleModals.addModal('test-modal', { overlap: true, overlay: true, props: { 'title-modal': 'modal b' } }), 3000);
   }
 
+  async componentDidLoad() {
+    this.openModal();
+  }
+
   render() {
     return (
-      <wc-handle-modals ref={el => this.handleModals = el}></wc-handle-modals>
+      <div>
+        <button onClick={() => this.openModal()}>Abrir</button>
+        <wc-handle-modals ref={el => this.handleModals = el}></wc-handle-modals>
+
+      </div>
     );
   }
 }
