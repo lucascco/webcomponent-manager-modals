@@ -42,6 +42,7 @@ export class WcHandleModals {
     await this.insertModalInOverlay(elementModal, optionsModal.overlap);
     this.addModalToService(elementModal, elementModal.id, optionsModal);
     this.insertBlur(optionsModal.elementBlur, optionsModal.nameClassBlur);
+    return elementModal;
   }
 
   @Method()

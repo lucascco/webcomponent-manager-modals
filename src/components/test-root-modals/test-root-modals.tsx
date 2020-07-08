@@ -10,13 +10,14 @@ export class TestRootModals {
   wrapperModalBlur: HTMLDivElement;
 
   async openModal() {
-    await this.handleModals.addModal('test-modal', {
+   const elModal = await this.handleModals.addModal('test-modal', {
       onCloseModal: data => console.log(`close modal root`, data),
       onCustomClick: data => console.log(`custom click root`, data),
       overlap: true,
       overlay: false,
       props: { 'title-modal': 'modal a' }
     });
+    setTimeout(() => (elModal as any).doSomething(), 3000);
     setTimeout(() => this.handleModals.addModal('test-modal', {
       overlap: true, overlay: true, props: { 'title-modal': 'modal b' }, elementBlur: this.wrapperModalBlur, nameClassBlur: 'modal-blur'
     }), 3000);

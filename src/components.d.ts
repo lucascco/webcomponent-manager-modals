@@ -8,12 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { OptionsModal, } from "./models/cp-modals.models";
 export namespace Components {
     interface TestModal {
+        "doSomething": () => Promise<void>;
         "titleModal": string;
     }
     interface TestRootModals {
     }
     interface WcHandleModals {
-        "addModal": (tagModal: string, options?: OptionsModal) => Promise<void>;
+        "addModal": (tagModal: string, options?: OptionsModal) => Promise<HTMLElement>;
         "removeModal": () => Promise<void>;
     }
     interface WcOverlay {

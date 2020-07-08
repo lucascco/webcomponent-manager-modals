@@ -1,4 +1,4 @@
-import { Component, h, Event, EventEmitter, Prop, Element } from '@stencil/core';
+import { Component, h, Event, EventEmitter, Prop, Element, Method } from '@stencil/core';
 
 
 @Component({
@@ -19,6 +19,11 @@ export class TestModal {
 
   @Event({eventName: 'cpCustomClickModal'})
   cpCustomClickModal: EventEmitter;
+
+  @Method()
+  async doSomething() {
+    console.log('doSomething', this.titleModal);
+  }
 
   componentDidLoad() {
     this.whenComponentLoad.emit();
