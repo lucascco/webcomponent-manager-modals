@@ -68,7 +68,6 @@ export class WcHandleModals {
     modal.closeModal(data);
     this.removeBlur(modal.options.elementBlur, modal.options.nameClassBlur);
     handleModalService.removeModal(modal);
-    this.isShow = false;
   }
 
   private addModalToService(ref: HTMLElement, id: string, options: OptionsModal) {
