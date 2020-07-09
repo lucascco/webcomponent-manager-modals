@@ -21,6 +21,19 @@
 | `cpCustomClickModal` |             | `CustomEvent<any>`                                  |
 
 
+## Methods
+
+### `doSomething() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

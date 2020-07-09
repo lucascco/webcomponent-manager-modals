@@ -7,13 +7,13 @@
 
 ## Methods
 
-### `addModal(tagModal: string, options?: OptionsModal) => Promise<void>`
+### `addModal(tagModal: string, options?: OptionsModal) => Promise<HTMLElement>`
 
 
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `Promise<HTMLElement>`
 
 
 
