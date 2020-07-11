@@ -18,10 +18,11 @@ export namespace Components {
         "removeModal": () => Promise<void>;
     }
     interface WcOverlay {
+        "activeIsShow": () => Promise<void>;
         "cleanChildModals": () => Promise<void>;
         "closeModal": (id: string) => Promise<void>;
+        "deactiveIsShow": () => Promise<void>;
         "getChildModals": () => Promise<Node[]>;
-        "isShow": boolean;
         "showOverlay": boolean;
     }
 }
@@ -72,7 +73,6 @@ declare namespace LocalJSX {
     interface WcHandleModals {
     }
     interface WcOverlay {
-        "isShow"?: boolean;
         "showOverlay"?: boolean;
     }
     interface IntrinsicElements {

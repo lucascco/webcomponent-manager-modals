@@ -8,9 +8,18 @@ import { Component, h, Prop, Method, Element } from '@stencil/core';
 export class WcOverlay {
 
   @Element() wcOverlay;
-  @Prop({mutable: true, reflect: true}) isShow: boolean;
   @Prop({mutable: true, reflect: true}) showOverlay: boolean = true;
   public divContainerOverlay: HTMLDivElement;
+
+  @Method()
+  async activeIsShow() {
+    this.divContainerOverlay.classList.add('-is-show');
+  }
+
+  @Method()
+  async deactiveIsShow() {
+    this.divContainerOverlay.classList.remove('-is-show');
+  }
 
   @Method()
   async closeModal(id: string): Promise<void> {
@@ -41,7 +50,7 @@ export class WcOverlay {
   private async turnOffShowIfEmpty() {
     const childModals = await this.getChildModals();
     if(!childModals.length) {
-      this.isShow = false;
+      this.deactiveIsShow();
     }
   }
 
@@ -55,8 +64,7 @@ export class WcOverlay {
         ref={el => this.divContainerOverlay = el}
         class={`
         container-overlay
-        ${this.isShow ? '-is-show' : ''}
-        ${this.showOverlay ? '' : '-no-overlay'}
+          ${this.showOverlay ? '' : '-no-overlay'}
         `}
         >
         <slot />

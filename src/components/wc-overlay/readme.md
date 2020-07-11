@@ -7,13 +7,22 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type      | Default     |
-| ------------- | -------------- | ----------- | --------- | ----------- |
-| `isShow`      | `is-show`      |             | `boolean` | `undefined` |
-| `showOverlay` | `show-overlay` |             | `boolean` | `true`      |
+| Property      | Attribute      | Description | Type      | Default |
+| ------------- | -------------- | ----------- | --------- | ------- |
+| `showOverlay` | `show-overlay` |             | `boolean` | `true`  |
 
 
 ## Methods
+
+### `activeIsShow() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 ### `cleanChildModals() => Promise<void>`
 
@@ -26,6 +35,16 @@ Type: `Promise<void>`
 
 
 ### `closeModal(id: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `deactiveIsShow() => Promise<void>`
 
 
 

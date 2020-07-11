@@ -11,7 +11,6 @@ import { Modal } from '../../models/modal';
 export class WcHandleModals {
 
   @State() showOverlay: boolean = true;
-  @State() isShow: boolean = false;
   public wcOverlay: HTMLWcOverlayElement;
 
   @Listen('cpCloseModal')
@@ -70,7 +69,7 @@ export class WcHandleModals {
     this.removeBlur(modal.options.elementBlur, modal.options.nameClassBlur);
     handleModalService.removeModal(modal);
     if(!handleModalService.listModalsOpen.length) {
-      this.isShow = false;
+      this.wcOverlay.deactiveIsShow();
     }
   }
 
@@ -119,13 +118,13 @@ export class WcHandleModals {
   private addListeners(elModal: HTMLElement) {
     elModal.addEventListener('componentLoad', () => {
       elModal.style.display = 'inherit';
-      this.isShow = true;
+      this.wcOverlay.activeIsShow();
     });
   }
 
   render() {
     return (
-      <wc-overlay showOverlay={this.showOverlay} isShow={this.isShow} ref={el => this.wcOverlay = el}>
+      <wc-overlay showOverlay={this.showOverlay} ref={el => this.wcOverlay = el}>
       </wc-overlay>
     );
   }
