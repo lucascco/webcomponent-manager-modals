@@ -1,5 +1,5 @@
 {
-  "name": "@lucascco/cp-modals",
+  "name": "@lucascco/webcomponent-manager-modals",
   "version": "1.2.2",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/cp-modals/cp-modals.js",
+  "unpkg": "dist/webcomponent-manager-modals/webcomponent-manager-modals.js",
   "files": [
     "dist/",
     "loader/"

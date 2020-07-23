@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'cp-modals',
+  namespace: 'webcomponent-manager-modals',
   plugins: [
     sass({
       injectGlobalPaths:[
